@@ -23,7 +23,7 @@
  :initialize                 ;; usage:  (dispatch [:initialize])
  (fn [_ _]                   ;; the two parameters are not important here, so use _
    {:time (js/Date.)         ;; What it returns becomes the new application state
-    :time-color "orange"}))  ;; so the application state will initially be a map with two keys
+    :time-color "silver"}))  ;; so the application state will initially be a map with two keys
 
 (rf/reg-event-db                ;; usage:  (dispatch [:time-color-change 34562])
  :time-color-change            ;; dispatched when the user enters a new colour into the UI text field
@@ -71,10 +71,11 @@
 
 (defn ui
   []
-  [:div
-   [:h1 "The time is now:"]
-   [clock]
-   [color-input]])
+  [:div.main-ui
+   [:div
+    [:h1 "The time is now:"]
+    [clock]
+    #_[color-input]]])
 
 ;; -- Entry Point -------------------------------------------------------------
 
